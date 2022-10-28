@@ -11,10 +11,15 @@ function displayTemperature(response) {
     ("src",
     "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.weather[0].icon}.png");
 }
-
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+}
 let apiKey = "4f6e636etc17733b801df4o7b14ba35b";
 let apiUrl =
   "https://api.shecodes.io/weather/v1/current?query=Lisbon&key=4f6e636etc17733b801df4o7b14ba35b&units=metric";
 let city = "Lisbon";
 
 axios.get(url).then(displayTemperature);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
