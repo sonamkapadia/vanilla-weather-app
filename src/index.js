@@ -1,25 +1,20 @@
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
-  let descriptionElement = document.querySelector("#description");
+  let descriptionElement = document.querySelector("#desciption");
   let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
-  cityElement.innerHTML = response.data.name;
-  descriptionElement.innerHTML = response.data.weather[0];
-  iconElement.setAttribute =
-    ("src",
-    "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.weather[0].icon}.png");
+  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  cityElement.innerHTML = response.data.city;
+  descriptionElement.innerHTML = response.data.condition.description;
+  iconElement.setAttribute("src", response.data.condition.icon_url);
 }
-function handleSubmit(event) {
-  event.preventDefault();
-  let cityInputElement = document.querySelector("#city-input");
-}
+
 let apiKey = "4f6e636etc17733b801df4o7b14ba35b";
 let apiUrl =
   "https://api.shecodes.io/weather/v1/current?query=Lisbon&key=4f6e636etc17733b801df4o7b14ba35b&units=metric";
 let city = "Lisbon";
 
-axios.get(url).then(displayTemperature);
+axios.get(apiUrl).then(displayTemperature);
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
