@@ -22,6 +22,12 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function search(city) {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -49,11 +55,20 @@ function displayTemperature(response) {
   descriptionElement.innerHTML = response.data.condition.description;
   iconElement.setAttribute("src", response.data.condition.icon_url);
 }
+function handleSubmit(event) {
+  event.preventDefault();
+  cityInputElement = document.querySelector("#city-input").value;
+  console.log(cityInputElement, "cityInputElement");
+  search(cityInputElement);
+}
 
 let apiKey = "4f6e636etc17733b801df4o7b14ba35b";
 let apiUrl =
   "https://api.shecodes.io/weather/v1/current?query=Lisbon&key=4f6e636etc17733b801df4o7b14ba35b&units=metric";
 let city = "Lisbon";
+let temperature = null;
+let units = "metric";
+let cityInputElement = "London";
 
 axios.get(apiUrl).then(displayTemperature);
 let form = document.querySelector("#search-form");
