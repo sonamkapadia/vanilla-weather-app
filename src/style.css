@@ -1,5 +1,11 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background: rgb(63, 94, 251);
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(172, 187, 228, 1) 100%
+  );
 }
 h1 {
   color: black;
@@ -24,8 +30,14 @@ li {
   max-width: 600px;
   margin: 30px auto;
   padding: 20px;
-  border: 1px solid #dadde1;
+  border: 1px solid black;
   border-radius: 10px;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
 }
 
 .weather-app-wrapper {
