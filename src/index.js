@@ -21,6 +21,10 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+let date = document.querySelector("#date");
+let now = new Date();
+date.innerHTML = formatDate(now);
+
 function formatDate(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -28,6 +32,7 @@ function formatDate(timestamp) {
 
   return days[day];
 }
+
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
