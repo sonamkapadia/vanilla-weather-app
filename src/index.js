@@ -25,7 +25,7 @@ let date = document.querySelector("#date");
 let now = new Date();
 date.innerHTML = formatDate(now);
 
-function formatDate(timestamp) {
+function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -64,7 +64,7 @@ function displayTemperature(response) {
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
   descriptionElement.innerHTML = response.data.condition.description;
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  dateElement.innerHTML = formatDate(response.data.time * 1000);
   humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = response.data.wind.speed;
   iconElement.setAttribute("src", response.data.condition.icon_url);
